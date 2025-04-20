@@ -66,11 +66,12 @@ const PokemonDetail = () => {
       return "bg-color-pokemon-yellow";
     }
   };
+
   return (
     <div
-      className={`${colorBg(data.id)} z-10 mx-auto flex h-screen max-h-[1024px] min-h-screen w-screen max-w-[768px] flex-1 flex-col overflow-hidden overflow-y-auto rounded-4xl p-5`}
+      className={`${colorBg(data.id)} relative z-10 mx-auto h-full max-h-[1024px] min-h-screen w-screen max-w-[768px] flex-col overflow-hidden overflow-y-auto overscroll-auto rounded-4xl md:overscroll-contain`}
     >
-      {/* card button back and titik tiga */}
+      {/* gambar background */}
       <Image
         src="/assets/svg/pokeball.svg"
         alt="Pokeball bg"
@@ -78,7 +79,6 @@ const PokemonDetail = () => {
         height={0}
         className="absolute top-48 -right-32 z-0 h-[200px] w-[420px] opacity-4"
       />
-
       <Link href="#">
         <div>
           <Image
@@ -91,7 +91,6 @@ const PokemonDetail = () => {
           />
         </div>
       </Link>
-
       <Image
         src="/assets/svg/dot-grid.svg"
         alt=""
@@ -100,6 +99,7 @@ const PokemonDetail = () => {
         className="absolute top-44 left-22 z-0 h-[100px] w-[100px] opacity-10"
       />
 
+      {/* header */}
       <div className="relative z-10 pt-5 pr-6 pl-6">
         {/* Back & Filter */}
         <div className="mb-5 flex items-center justify-between">
@@ -149,6 +149,7 @@ const PokemonDetail = () => {
       </div>
 
       <div className="h-screen w-full overflow-y-auto rounded-4xl bg-white">
+        {/* <div className="flex h-[calc(100vh-180px)] w-full flex-col overflow-y-auto rounded-4xl bg-white"> */}
         <div className="mr-8 mb-3 ml-8 flex justify-between border-b border-gray-200 pt-15">
           {listTab.map((tab) => (
             <button
@@ -166,7 +167,7 @@ const PokemonDetail = () => {
           ))}
         </div>
 
-        {renderContentNav()}
+        <div className="flex flex-1">{renderContentNav()}</div>
       </div>
     </div>
   );
