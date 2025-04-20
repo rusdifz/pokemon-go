@@ -11,7 +11,7 @@ interface Props {
 
 const About = ({ data }: Props) => {
   return (
-    <div className="overflow-y-auto bg-white pr-8 pl-8">
+    <div className="overflow-hidden overflow-y-auto bg-white pr-8 pl-8">
       <div className="space-y-3 pt-1 font-sans text-[15px]">
         <div>
           <span className="text-gray-400">Species</span>

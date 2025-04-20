@@ -55,22 +55,21 @@ const PokemonDetail = () => {
     }
   };
 
-  // const colorBg = (id: number) => {
-  //   if (id === 1 && id <= 3) {
-  //     return "bg-color-pokemon-green";
-  //   } else if (id > 3 && id <= 6) {
-  //     return "bg-color-pokemon-red";
-  //   } else if (id > 6 && id <= 9) {
-  //     return "bg-color-pokemon-blue";
-  //   } else {
-  //     return "bg-color-pokemon-yellow";
-  //   }
-  // };
+  const colorBg = (id: number) => {
+    if (id === 1 && id <= 3) {
+      return "bg-color-pokemon-green";
+    } else if (id > 3 && id <= 6) {
+      return "bg-color-pokemon-red";
+    } else if (id > 6 && id <= 9) {
+      return "bg-color-pokemon-blue";
+    } else {
+      return "bg-color-pokemon-yellow";
+    }
+  };
   return (
-    // <div
-    //   className={`${colorBg(data.id)} relative z-10 mx-auto max-h-[1024px] min-h-screen w-full max-w-[768px] overflow-hidden overflow-y-auto overscroll-auto rounded-4xl p-5 md:overscroll-contain`}
-    // >
-    <div className="bg-color-pokemon-green relative z-10 mx-auto max-h-[800px] min-h-screen w-full max-w-[768px] overflow-hidden overflow-y-auto scroll-smooth rounded-lg bg-white p-5">
+    <div
+      className={`${colorBg(data.id)} z-10 mx-auto flex h-screen max-h-[1024px] min-h-screen w-screen max-w-[768px] flex-1 flex-col overflow-hidden overflow-y-auto rounded-4xl p-5`}
+    >
       {/* card button back and titik tiga */}
       <Image
         src="/assets/svg/pokeball.svg"
@@ -166,6 +165,7 @@ const PokemonDetail = () => {
             </button>
           ))}
         </div>
+
         {renderContentNav()}
       </div>
     </div>
