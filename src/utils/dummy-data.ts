@@ -1,4 +1,5 @@
 import { IPokemon } from "@/types/interface";
+console.log("");
 
 export const pokemonListDummy = [
   {
