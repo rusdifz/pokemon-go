@@ -82,6 +82,10 @@ body {
   min-height: 100dvh;
 }
 
+.pokemon-detail-container {
+  overflow-y: hidden; /* sembunyikan overflow vertikal :contentReference[oaicite:4]{index=4} */
+}
+
 @media (max-height: 400px) {
   .container {
     overflow-y: auto;
@@ -113,5 +117,10 @@ body {
   .bg-color-pokemon-yellow {
     overflow-y: auto;
     background-color: #f7d86d;
+  }
+
+  .pokemon-detail-container {
+    overflow-y: auto; /* tampilkan scrollbar otomatis :contentReference[oaicite:6]{index=6} */
+    max-height: 100vh; /* batasi tinggi container sesuai viewport :contentReference[oaicite:7]{index=7} */
   }
 }

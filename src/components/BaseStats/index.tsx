@@ -1,4 +1,4 @@
-import { IPokemon, stats } from "@/types/interface";
+import { stats } from "@/types/interface";
 import { upperCaseFirstChar } from "@/utils/helper/convert-string";
 // import { pokemonDetailDummy } from "@/utils/dummy-data";
 
@@ -34,7 +34,7 @@ const BaseStats = ({ stats }: Props) => {
           </div>
         </div>
       ))}
-      <div className="mb-2 pt-8">
+      <div className="mb-2 pt-5">
         <p className="text-lg font-semibold text-black">Breeding</p>
         <p className="text-gray-400">
           The effectiveness of each type on Charmander

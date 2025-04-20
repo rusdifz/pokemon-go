@@ -36,7 +36,7 @@ export default function RootLayout({
           rel="stylesheet"
           type="text/css"
         />
-        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        {/* <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> */}
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} bg-color-pokemon-base flex justify-center antialiased sm:p-6 md:p-8 lg:p-10`}

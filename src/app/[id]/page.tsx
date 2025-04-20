@@ -1,15 +1,13 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import useSWR from "swr";
 
-// import { dataDetailDummy } from "@/utils/dummy-data";
 import { upperCaseFirstChar } from "@/utils/helper/convert-string";
-
-import { IPokemon } from "@/types/interface";
 
 import About from "@/components/About";
 import BaseStats from "@/components/BaseStats";
@@ -56,15 +54,29 @@ const PokemonDetail = () => {
         return <About data={data} />;
     }
   };
+
+  const colorBg = (id: number) => {
+    if (id === 1 && id <= 3) {
+      return "bg-color-pokemon-green";
+    } else if (id > 3 && id <= 6) {
+      return "bg-color-pokemon-red";
+    } else if (id > 6 && id <= 9) {
+      return "bg-color-pokemon-blue";
+    } else {
+      return "bg-color-pokemon-yellow";
+    }
+  };
   return (
-    <div className="bg-color-pokemon-green scroll-smoot relative z-10 mx-auto max-h-[800px] min-h-screen w-full max-w-[768px] overflow-hidden rounded-4xl">
+    <div
+      className={`${colorBg(data.id)} relative z-10 max-h-[800px] min-h-screen w-full max-w-[768px] overflow-y-auto rounded-4xl`}
+    >
       {/* card button back and titik tiga */}
       <Image
         src="/assets/svg/pokeball.svg"
         alt="Pokeball bg"
         width={0}
         height={0}
-        className="absolute top-52 -right-32 z-0 h-[200px] w-[420px] opacity-4"
+        className="absolute top-48 -right-32 z-0 h-[200px] w-[420px] opacity-4"
       />
 
       <Link href="#">
@@ -85,15 +97,15 @@ const PokemonDetail = () => {
         alt=""
         width={0}
         height={0}
-        className="absolute top-52 left-22 z-0 h-[100px] w-[100px] opacity-10"
+        className="absolute top-44 left-22 z-0 h-[100px] w-[100px] opacity-10"
       />
 
-      <div className="relative z-10 pt-15 pr-6 pl-6">
+      <div className="relative z-10 pt-5 pr-6 pl-6">
         {/* Back & Filter */}
         <div className="mb-5 flex items-center justify-between">
           <Image
             src="assets/svg/arrow-left-white.svg"
-            alt="HUWA logo"
+            alt=""
             className="left-5"
             width="30"
             height="50"
@@ -128,7 +140,7 @@ const PokemonDetail = () => {
 
       <div className="relative mt-15 -mb-10 flex w-full items-center justify-center">
         <Image
-          src="/assets/bulbasaur.png"
+          src={`/assets/${id?.toString().toLowerCase()}.png`}
           alt=""
           width={100}
           height={100}
@@ -136,8 +148,8 @@ const PokemonDetail = () => {
         />
       </div>
 
-      <div className="h-screen w-full rounded-4xl bg-white">
-        <div className="mr-8 mb-6 ml-8 flex justify-between border-b border-gray-200 pt-15">
+      <div className="h-screen w-full overflow-y-auto rounded-4xl bg-white">
+        <div className="mr-8 mb-3 ml-8 flex justify-between border-b border-gray-200 pt-15">
           {listTab.map((tab) => (
             <button
               key={tab}

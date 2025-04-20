@@ -11,7 +11,7 @@ interface Props {
 
 const About = ({ data }: Props) => {
   return (
-    <div className="bg-white pr-8 pl-8">
+    <div className="overflow-y-auto bg-white pr-8 pl-8">
       <div className="space-y-3 pt-1 font-sans text-[15px]">
         <div>
           <span className="text-gray-400">Species</span>
@@ -22,7 +22,7 @@ const About = ({ data }: Props) => {
           <span className="text-gray-400">Height</span>
 
           <span className="absolute left-40 text-black">
-            2'3.6 ({formatStat(data.height)} cm)
+            {`2'3.6`} ({formatStat(data.height)} cm)
           </span>
         </div>
 

@@ -9,11 +9,11 @@ export const pokemonListDummy = [
     image: "/assets/bulbasaur.png",
   },
   {
-    name: "lvysaur",
+    name: "Ivysaur",
     url: "https://pokeapi.co/api/v2/pokemon/lvysaur/",
     types: ["Grass", "Poison"],
     color: "green",
-    image: "/assets/lvysaur2.png",
+    image: "/assets/ivysaur.png",
   },
   {
     name: "Venusaur",
@@ -27,14 +27,14 @@ export const pokemonListDummy = [
     url: "https://pokeapi.co/api/v2/pokemon/charmander/",
     types: ["Fire"],
     color: "red",
-    image: "/assets/charmander1.png",
+    image: "/assets/charmander.png",
   },
   {
     name: "Charmeleon",
     url: "https://pokeapi.co/api/v2/pokemon/charmeleon/",
     types: ["Fire"],
     color: "red",
-    image: "/assets/charmaleon.png",
+    image: "/assets/charmeleon.png",
   },
   {
     name: "Charizard",
