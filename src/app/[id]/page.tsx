@@ -70,7 +70,7 @@ const PokemonDetail = () => {
 
   return (
     <div
-      className={`${colorBg(data.id)} relative z-10 mx-auto h-full max-h-[1024px] min-h-screen w-screen max-w-[768px] flex-col overflow-hidden overflow-y-auto overscroll-auto rounded-4xl md:overscroll-contain`}
+      className={`${colorBg(data.id)} relative z-10 mx-auto h-screen max-h-[1024px] min-h-screen w-screen max-w-[768px] flex-col overflow-hidden overflow-y-auto overscroll-auto rounded-4xl md:overscroll-contain`}
     >
       {/* gambar background */}
       <Image
@@ -168,9 +168,7 @@ const PokemonDetail = () => {
           ))}
         </div>
 
-        <div className="flex flex-1 overflow-y-scroll">
-          {renderContentNav()}
-        </div>
+        <div className="">{renderContentNav()}</div>
       </div>
     </div>
   );

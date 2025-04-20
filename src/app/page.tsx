@@ -27,7 +27,7 @@ const Home = () => {
   }
 
   return (
-    <div className="relative z-10 mx-auto h-full max-h-[1024px] min-h-screen w-full max-w-[768px] overflow-hidden overflow-y-auto rounded-lg bg-white p-5">
+    <div className="relative z-10 mx-auto h-screen max-h-[1024px] min-h-screen w-full max-w-[768px] overflow-hidden overflow-y-auto rounded-lg bg-white p-5">
       {/* card button back and titik tiga */}
 
       <Image
@@ -65,7 +65,7 @@ const Home = () => {
         {pokemons.map((dt, index) => (
           <Link key={index.toString()} href={`/${dt.name}`}>
             <div
-              className={`bg-color-pokemon-${dt.color} relative flex h-[150px] w-[175px] overflow-hidden rounded-2xl p-5`}
+              className={`bg-color-pokemon-${dt.color} relative flex h-[125px] w-[160px] overflow-hidden rounded-2xl p-5`}
             >
               <Image
                 src={PokeballSvg}
