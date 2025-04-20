@@ -57,7 +57,7 @@ const PokemonDetail = () => {
     }
   };
   return (
-    <div className="bg-color-pokemon-green scroll-smoot relative z-10 mx-auto max-h-[800px] min-h-screen w-full max-w-[768px] overflow-hidden overflow-y-auto rounded-4xl">
+    <div className="bg-color-pokemon-green scroll-smoot relative z-10 mx-auto max-h-[800px] min-h-screen w-full max-w-[768px] overflow-hidden rounded-4xl">
       {/* card button back and titik tiga */}
       <Image
         src="/assets/svg/pokeball.svg"
@@ -154,7 +154,6 @@ const PokemonDetail = () => {
           ))}
         </div>
         {renderContentNav()}
-        {/* <div className="space-y-10 pr-8 pl-8"></div> */}
       </div>
     </div>
   );

@@ -28,23 +28,27 @@ body {
 }
 
 .bg-color-pokemon-base {
+  overflow-y: hidden;
   background-color: #f5f7fa;
 }
 
 .bg-color-pokemon-green {
-  @apply overflow-y-hidden;
+  overflow-y: hidden;
   background-color: #39c49f;
 }
 
 .bg-color-pokemon-red {
+  overflow-y: hidden;
   background-color: #f76b6b;
 }
 
 .bg-color-pokemon-blue {
+  overflow-y: hidden;
   background-color: #4fa7e0;
 }
 
 .bg-color-pokemon-yellow {
+  overflow-y: hidden;
   background-color: #f7d86d;
 }
 
@@ -74,29 +78,40 @@ body {
   max-width: 768px; /* batas mobile */
   margin: 0 auto;
   padding: 0 auto;
-  /* background-color: #f5f7fa; */
+  background-color: #f5f7fa;
   min-height: 100dvh;
-}
-
-@layer base {
-  .pokemon-detail-container {
-    @apply overflow-y-hidden;
-  }
-  @media (max-height: 480px) {
-    .pokemon-detail-container {
-      @apply max-h-screen overflow-y-auto;
-    }
-  }
 }
 
 @media (max-height: 400px) {
   .container {
     overflow-y: auto;
-    /* Opsional: atur tinggi maksimal kontainer */
     max-height: 100vh;
-    max-width: 768px; /* batas mobile */
-    margin: 0 auto;
-    padding: 0 auto;
-    /* background-color: #f5f7fa; */
+    background-color: #f5f7fa;
+  }
+
+  .bg-color-pokemon-base {
+    overflow-y: auto;
+    background-color: #f5f7fa;
+  }
+
+  .bg-color-pokemon-green {
+    overflow-y: auto;
+    background-color: #39c49f;
+    max-height: 100vh;
+  }
+
+  .bg-color-pokemon-red {
+    overflow-y: auto;
+    background-color: #f76b6b;
+  }
+
+  .bg-color-pokemon-blue {
+    overflow-y: auto;
+    background-color: #4fa7e0;
+  }
+
+  .bg-color-pokemon-yellow {
+    overflow-y: auto;
+    background-color: #f7d86d;
   }
 }

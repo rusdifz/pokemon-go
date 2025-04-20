@@ -8,7 +8,7 @@ interface Props {
 
 const BaseStats = ({ stats }: Props) => {
   return (
-    <div className="space-y-3 pr-8 pl-8">
+    <div className="space-y-3 overflow-y-auto pr-8 pl-8">
       {stats.map((stat, index) => (
         <div key={index} className="space-y-3 pt-1 font-sans text-[15px]">
           <div className="grid grid-cols-10 items-center justify-start">
