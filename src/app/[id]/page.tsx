@@ -55,17 +55,17 @@ const PokemonDetail = () => {
     }
   };
 
-  const colorBg = (id: number) => {
-    if (id === 1 && id <= 3) {
-      return "bg-color-pokemon-green";
-    } else if (id > 3 && id <= 6) {
-      return "bg-color-pokemon-red";
-    } else if (id > 6 && id <= 9) {
-      return "bg-color-pokemon-blue";
-    } else {
-      return "bg-color-pokemon-yellow";
-    }
-  };
+  // const colorBg = (id: number) => {
+  //   if (id === 1 && id <= 3) {
+  //     return "bg-color-pokemon-green";
+  //   } else if (id > 3 && id <= 6) {
+  //     return "bg-color-pokemon-red";
+  //   } else if (id > 6 && id <= 9) {
+  //     return "bg-color-pokemon-blue";
+  //   } else {
+  //     return "bg-color-pokemon-yellow";
+  //   }
+  // };
   return (
     // <div
     //   className={`${colorBg(data.id)} relative z-10 mx-auto max-h-[1024px] min-h-screen w-full max-w-[768px] overflow-hidden overflow-y-auto overscroll-auto rounded-4xl p-5 md:overscroll-contain`}
