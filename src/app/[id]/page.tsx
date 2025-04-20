@@ -67,9 +67,10 @@ const PokemonDetail = () => {
     }
   };
   return (
-    <div
-      className={`${colorBg(data.id)} relative z-10 max-h-[800px] min-h-screen w-full max-w-[768px] overflow-y-auto rounded-4xl`}
-    >
+    // <div
+    //   className={`${colorBg(data.id)} relative z-10 mx-auto max-h-[1024px] min-h-screen w-full max-w-[768px] overflow-hidden overflow-y-auto overscroll-auto rounded-4xl p-5 md:overscroll-contain`}
+    // >
+    <div className="bg-color-pokemon-green relative z-10 mx-auto max-h-[800px] min-h-screen w-full max-w-[768px] overflow-hidden overflow-y-auto scroll-smooth rounded-lg bg-white p-5">
       {/* card button back and titik tiga */}
       <Image
         src="/assets/svg/pokeball.svg"
@@ -144,7 +145,7 @@ const PokemonDetail = () => {
           alt=""
           width={100}
           height={100}
-          className="h-[220px] w-[250px]"
+          className="h-[200px] w-[230px]"
         />
       </div>
 

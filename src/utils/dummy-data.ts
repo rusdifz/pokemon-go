@@ -86,20 +86,6 @@ export const pokemonListDummy = [
     color: "yellow",
     image: "/assets/pikachu.png",
   },
-  {
-    name: "Blastoise",
-    url: "https://pokeapi.co/api/v2/pokemon/blastoise/",
-    types: ["water"],
-    color: "blue",
-    image: "/assets/blastoise.png",
-  },
-  {
-    name: "Pikachu",
-    url: "https://pokeapi.co/api/v2/pokemon/pikachu/",
-    types: ["electric"],
-    color: "yellow",
-    image: "/assets/pikachu.png",
-  },
 ];
 
 export const pokemonDetailDummy: IPokemon = {
