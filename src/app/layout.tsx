@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "../styles/globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,10 +24,28 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Viewport untuk mobile responsiveness */}
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1"
+        />
+
+        <link
+          href="https://cdn.jsdelivr.net/npm/daisyui@5"
+          rel="stylesheet"
+          type="text/css"
+        />
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} bg-color-pokemon-base flex justify-center antialiased sm:p-6 md:p-8 lg:p-10`}
       >
-        {children}
+        <main>
+          <div className="bg-color-pokemon-base max-w-mobile container min-h-screen w-full items-center justify-center rounded-4xl shadow-md">
+            {children}
+          </div>
+        </main>
       </body>
     </html>
   );

@@ -1,103 +1,130 @@
+"use client";
+
 import Image from "next/image";
 
-export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+import PokeballSvg from "../../public/assets/svg/pokeball.svg";
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+import { pokemonListDummy } from "@/utils/dummy-data";
+import { useEffect, useState } from "react";
+import { IPokemonList } from "@/types/interface";
+import Link from "next/link";
+
+const Home = () => {
+  const [loading, setLoading] = useState<boolean>(true);
+  const [pokemons, setPokemons] = useState<IPokemonList[]>([]);
+
+  useEffect(() => {
+    setPokemons(pokemonListDummy);
+    setLoading(false);
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="z-10 mx-auto flex max-h-[800px] min-h-screen w-[390px] max-w-[768px] items-center justify-center rounded-4xl bg-white text-center">
+        <span className="loading loading-spinner loading-xl" />
+      </div>
+    );
+  }
+
+  return (
+    <div className="relative z-10 mx-auto max-h-[800px] min-h-screen w-full max-w-[768px] overflow-hidden overflow-y-auto scroll-smooth rounded-lg bg-white p-5">
+      {/* card button back and titik tiga */}
+
+      <Image
+        src={PokeballSvg}
+        alt="Pokeball bg"
+        width={100}
+        height={100}
+        className="absolute -top-14 -right-16 z-0 h-[220px] w-[220px] opacity-4"
+      />
+
+      {/* Header */}
+      <div className="relative z-10 pt-5">
+        {/* Back & Filter */}
+        <div className="mb-5 flex items-center justify-between">
+          <Image
+            src="/assets/svg/arrow-left.svg"
+            alt="Back"
+            width={30}
+            height={30}
+          />
+          <Image
+            src="/assets/svg/memo.svg"
+            alt="Menu"
+            width={30}
+            height={30}
+            className="mr-2"
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+
+        <h1 className="mb-5 text-3xl font-bold text-gray-800">Pokedex</h1>
+      </div>
+
+      {/* card pokemon */}
+      <div className="mb:grid-cols-2 grid grid-cols-2 items-center gap-3">
+        {pokemons.map((dt, index) => (
+          <Link key={index.toString()} href={`/${dt.name}`}>
+            <div
+              className={`bg-color-pokemon-${dt.color} relative flex h-[120px] w-[155px] overflow-hidden rounded-2xl p-5`}
+            >
+              <Image
+                src={PokeballSvg}
+                alt="Pokeball bg"
+                width={100}
+                height={100}
+                className="absolute right-0 bottom-0 z-0 h-[75px] w-[70px] opacity-5"
+              />
+
+              <span
+                className={`text-color-pokemon-${dt.color} absolute top-2 right-3 font-mono text-[14px] font-semibold`}
+              >
+                #00{index + 1}
+              </span>
+
+              <div className="z-10 flex flex-col space-y-1">
+                <p className="text-[16px] font-semibold text-white">
+                  {dt.name}
+                </p>
+                <div className="mt-1 flex flex-col space-y-1">
+                  {dt.types.map((type, i) => (
+                    <span
+                      key={i}
+                      className="inline-block w-fit rounded-full bg-white/20 px-2 py-[2px] text-[10px] text-white"
+                    >
+                      {type}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <Image
+                src={dt.image}
+                alt=""
+                width={100}
+                height={100}
+                className="absolute right-2 bottom-2 z-0 h-[55px] w-[65px]"
+              />
+            </div>
+          </Link>
+        ))}
+      </div>
+
+      {/* Floating Button */}
+      <div className="fixed right-5 bottom-5 z-50">
+        <button className="rounded-full bg-indigo-500 p-3 shadow-lg transition-colors duration-200 hover:bg-indigo-600 hover:shadow-xl active:scale-95">
           <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+            src="assets/svg/filter.svg"
+            alt="Filter button"
+            width={100}
+            height={100}
+            className="h-[25px] w-[25px]"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        </button>
+      </div>
     </div>
   );
-}
+};
+
+export default Home;
+
+// <?xml version="1.0" encoding="UTF-8"?>
