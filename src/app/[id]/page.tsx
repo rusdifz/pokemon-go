@@ -56,7 +56,7 @@ const PokemonDetail = () => {
   };
 
   const colorBg = (id: number) => {
-    if (id === 1 && id <= 3) {
+    if (id >= 1 && id <= 3) {
       return "bg-color-pokemon-green";
     } else if (id > 3 && id <= 6) {
       return "bg-color-pokemon-red";
@@ -66,6 +66,7 @@ const PokemonDetail = () => {
       return "bg-color-pokemon-yellow";
     }
   };
+  console.log("da", data.id);
 
   return (
     <div
@@ -77,7 +78,7 @@ const PokemonDetail = () => {
         alt="Pokeball bg"
         width={0}
         height={0}
-        className="absolute top-48 -right-32 z-0 h-[200px] w-[420px] opacity-4"
+        className="absolute top-36 -right-28 z-0 h-[150px] w-[370px] opacity-4"
       />
       <Link href="#">
         <div>
@@ -86,7 +87,7 @@ const PokemonDetail = () => {
             alt=""
             width={0}
             height={0}
-            className="absolute -top-20 -left-56 z-0 h-[200px] w-[420px] opacity-10"
+            className="absolute -top-20 -left-56 z-0 h-[200px] w-[420px] opacity-15"
             // onClick={()=>{ {window}}}
           />
         </div>
@@ -96,11 +97,11 @@ const PokemonDetail = () => {
         alt=""
         width={0}
         height={0}
-        className="absolute top-44 left-22 z-0 h-[100px] w-[100px] opacity-10"
+        className="absolute top-38 left-22 z-0 h-[100px] w-[100px] opacity-15"
       />
 
       {/* header */}
-      <div className="relative z-10 pt-5 pr-6 pl-6">
+      <div className="relative z-10 pt-8 pr-6 pl-6">
         {/* Back & Filter */}
         <div className="mb-5 flex items-center justify-between">
           <Image
@@ -119,7 +120,7 @@ const PokemonDetail = () => {
             height="50"
           />
         </div>
-        <h1 className="font-sans text-[34px] font-bold text-white">
+        <h1 className="font-sans text-[24px] font-bold text-white">
           {upperCaseFirstChar(data.name)}
         </h1>
         <span className="absolute right-6 font-sans font-bold text-white">
@@ -131,32 +132,32 @@ const PokemonDetail = () => {
         {data.types.map((type: any, index: number) => (
           <span
             key={index}
-            className="mr-2 inline-block h-[25px] w-[70px] justify-center rounded-full bg-white/30 px-2 py-[2px] text-center text-[12px] text-white"
+            className="text-whit mr-2 inline-block h-[20px] w-[60px] justify-center rounded-full bg-white/20 px-2 py-[2px] text-center text-[10px] font-semibold"
           >
             {upperCaseFirstChar(type.type.name)}
           </span>
         ))}
       </div>
 
-      <div className="relative mt-15 -mb-10 flex w-full items-center justify-center">
+      <div className="relative mt-10 -mb-8 flex w-full items-center justify-center">
         <Image
           src={`/assets/${id?.toString().toLowerCase()}.png`}
           alt=""
           width={100}
           height={100}
-          className="h-[200px] w-[230px]"
+          className="h-[150px] w-[180px]"
         />
       </div>
 
       <div className="h-screen w-full overflow-y-auto rounded-4xl bg-white">
         {/* <div className="flex h-[calc(100vh-180px)] w-full flex-col overflow-y-auto rounded-4xl bg-white"> */}
-        <div className="mr-8 mb-3 ml-8 flex justify-between border-b border-gray-200 pt-15">
+        <div className="mr-8 mb-3 ml-8 flex justify-between border-b border-gray-200 pt-10">
           {listTab.map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
               disabled={tab === "Evolution" || tab === "Moves"}
-              className={`px-4 py-2 font-sans text-base font-medium capitalize ${
+              className={`px-4 py-2 font-sans text-sm font-semibold capitalize ${
                 activeTab === tab
                   ? "border-b-2 border-blue-600 text-black"
                   : "text-gray-400 hover:text-gray-700"
@@ -167,7 +168,9 @@ const PokemonDetail = () => {
           ))}
         </div>
 
-        <div className="flex flex-1">{renderContentNav()}</div>
+        <div className="flex flex-1 overflow-y-scroll">
+          {renderContentNav()}
+        </div>
       </div>
     </div>
   );

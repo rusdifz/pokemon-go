@@ -11,8 +11,8 @@ interface Props {
 
 const About = ({ data }: Props) => {
   return (
-    <div className="overflow-hidden overflow-y-auto bg-white pr-8 pl-8">
-      <div className="space-y-3 pt-1 font-sans text-[15px]">
+    <div className="flex flex-col overflow-y-scroll bg-white pr-8 pl-8">
+      <div className="space-y-2.5 pt-1 font-sans text-[13px]">
         <div>
           <span className="text-gray-400">Species</span>
           <span className="absolute left-40 text-black">Seed</span>
@@ -47,9 +47,9 @@ const About = ({ data }: Props) => {
         </div>
       </div>
 
-      <div className="mb-2 pt-8 text-lg font-semibold text-black">Breeding</div>
+      <div className="mb-2 pt-5 text-sm font-semibold text-black">Breeding</div>
 
-      <div className="space-y-3 pt-1 font-sans text-[15px]">
+      <div className="space-y-2.5 pt-1 font-sans text-[13px]">
         <div>
           <span className="text-gray-400">Gender</span>
           <span className="absolute left-40 font-bold text-blue-600">

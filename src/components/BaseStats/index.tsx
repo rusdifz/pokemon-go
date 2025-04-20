@@ -8,9 +8,9 @@ interface Props {
 
 const BaseStats = ({ stats }: Props) => {
   return (
-    <div className="space-y-3 overflow-hidden overflow-y-auto pr-8 pl-8">
+    <div className="flex flex-col space-y-2 overflow-auto overflow-y-scroll pr-8 pl-8">
       {stats.map((stat, index) => (
-        <div key={index} className="space-y-3 pt-1 font-sans text-[15px]">
+        <div key={index} className="space-y-2 pt-1 font-sans text-[13px]">
           <div className="grid grid-cols-10 items-center justify-start">
             <span className="col-span-3 text-gray-400">
               {stat.stat.name === "special-attack"
@@ -35,8 +35,8 @@ const BaseStats = ({ stats }: Props) => {
         </div>
       ))}
       <div className="mb-2 pt-5">
-        <p className="text-lg font-semibold text-black">Breeding</p>
-        <p className="text-gray-400">
+        <p className="text-sm font-semibold text-black">Breeding</p>
+        <p className="text-[13px] text-gray-400">
           The effectiveness of each type on Charmander
         </p>
       </div>
